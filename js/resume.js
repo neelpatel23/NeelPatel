@@ -1,7 +1,7 @@
 (function ($) {
     "use strict"; // Start of use strict
   
-    document.getElementById('footer').innerHTML = '&copy; ' + new Date().getFullYear() + ' Vaibhav Tank'
+    document.getElementById('footer').innerHTML = '&copy; ' + new Date().getFullYear() + ' Neel Patel'
   
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
