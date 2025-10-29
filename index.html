@@ -1,773 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-166092264-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Neel J. Patel — SWE Portfolio & Resume" />
+  <title>Neel J. Patel — Software Engineer</title>
 
-    gtag('config', 'UA-166092264-1');
-  </script>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
-  <meta charset="utf-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description"
-        content="Neel Patel's Portfolio">
-  <meta name="author"
-        content="Neel Patel">
-  <meta name='impact-site-verification' value='c136c320-c24b-4b63-88b8-4cb7edf6a89b'>
+  <!-- Bootstrap 5 (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-  <title>Neel Patel - About Me</title>
+  <style>
+    :root{
+      --bg: #0b0d12;
+      --card: #111521;
+      --muted: #98a2b3;
+      --text: #e6e9f0;
+      --brand: #7c5cff; /* electric violet */
+      --brand-2: #2cd4ff; /* cyan accent */
+      --ring: 0 0 0 .25rem rgba(124,92,255,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#ffffff; --card:#f7f7fb; --text:#0b0d12; --muted:#475467; }
+    }
+    html,body{ height:100%; background: radial-gradient(1200px 600px at 10% -10%, rgba(124,92,255,.18), transparent 60%),
+                                 radial-gradient(900px 500px at 110% 30%, rgba(44,212,255,.12), transparent 60%),
+                                 var(--bg); color:var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    a{ color: var(--brand-2); text-decoration: none; }
+    a:hover{ color: var(--brand); }
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet"
-        type="text/css"
-        href="vendor/bootstrap/css/bootstrap.min.css">
+    .chip{display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .7rem; border-radius:999px; background:rgba(124,92,255,.1); color:#c9c3ff; font-weight:600; letter-spacing:.2px;}
+    .btn-brand{ background: linear-gradient(90deg, var(--brand) 0%, var(--brand-2) 100%); border:none; color:white; font-weight:700; }
+    .btn-brand:hover{ filter:brightness(1.05); box-shadow: var(--ring); }
 
-  <!-- Custom fonts for this template -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700"
-        rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700"
-        rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet"
-        type="text/css"
-        href="vendor/fontawesome-free/css/all.min.css">
-  <link rel="stylesheet"
-        type="text/css"
-        href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    .nav-glass{ backdrop-filter: blur(8px); background: rgba(17,21,33,.6); border:1px solid rgba(255,255,255,.06); }
 
-  <!-- Custom styles for this template -->
-  <link rel="stylesheet"
-        type="text/css"
-        href="css/resume.min.css">
+    .cardx{ background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); border-radius: 18px; }
+    .cardx:hover{ transform: translateY(-2px); transition: .25s ease; box-shadow: 0 10px 40px rgba(0,0,0,.25); }
 
+    .section-title{ font-family: Space Grotesk, Inter, sans-serif; letter-spacing:.4px; font-weight:800; }
+    .subtle{ color:var(--muted); }
+
+    .timeline{ position:relative; padding-left:1.2rem; }
+    .timeline::before{ content:""; position:absolute; left:.15rem; top:.3rem; bottom:.5rem; width:2px; background: linear-gradient(var(--brand), transparent); border-radius:2px; }
+    .tl-item{ position:relative; margin:0 0 1.25rem 0; }
+    .tl-item::before{ content:""; position:absolute; left:-1.1rem; top:.25rem; width:.7rem; height:.7rem; border-radius:50%; background: var(--brand-2); box-shadow:0 0 0 3px rgba(44,212,255,.2); }
+
+    .badge-skill{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); color:var(--text); }
+
+    .avatar{
+      width:120px; height:120px; border-radius:50%; object-fit:cover; border:3px solid rgba(255,255,255,.18);
+      box-shadow:0 10px 30px rgba(124,92,255,.2);
+    }
+    .hero{ border:1px solid rgba(255,255,255,.08); border-radius:22px; background: radial-gradient(800px 400px at 10% -10%, rgba(124,92,255,.18), transparent 60%), rgba(17,21,33,.5); }
+
+    .list-unstyled li + li{ margin-top:.35rem; }
+    .fa-li{ top: .2em; color: var(--brand-2); }
+    .muted{ color: var(--muted); }
+
+    /* Smooth anchors */
+    html{ scroll-behavior: smooth; }
+  </style>
 </head>
-
-<body id="page-top">
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top justify-content-between"
-       id="sideNav">
-    <a class="navbar-brand js-scroll-trigger"
-       href="#page-top">
-      <span class="d-block d-lg-none">Neel Patel</span>
-      <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile"
-             src="img/IMG_3725.PNG"
-             alt="Neel's picture">
-      </span>
-    </a>
-    <button class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse"
-         id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger"
-             href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger"
-             href="#experience">Experience</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link js-scroll-trigger"
-             href="#projects">Projects</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger"
-             href="#education">Education</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger"
-             href="#skills">Skills</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link js-scroll-trigger"
-             href="#testimonials">Testimonials</a>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link js-scroll-trigger"
-             href="#interests">Interests</a>
-        </li> -->
-        <!-- <li class="nav-item">
-          <a class="nav-link js-scroll-trigger"
-             href="#awards">Awards</a>
-        </li> -->
-        <div class="social-icons"
-             style="margin: 30px 0;">
-          <a href="https://linkedin.com/in/neelpatel0304"
-             target="_blank">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://www.github.com/neelpatel23"
-             target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </ul>
+<body>
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-lg sticky-top nav-glass py-2">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home"><span style="color:var(--brand)">Neel Patel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-brand ms-lg-2" href="mailto:neelp2023@gmail.com"><i class="fa-solid fa-envelope me-2"></i>Contact</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <div class="modal fade"
-       id="resumeDownload"
-       tabindex="-1"
-       role="dialog"
-       aria-labelledby="resumeDownloadLabel"
-       aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered"
-         role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title"
-              id="resumeDownloadLabel">Resume Download</h5>
-          <button type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+  <!-- Hero / About -->
+  <header id="home" class="container py-5">
+    <div class="hero p-4 p-md-5 cardx">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-md-auto text-center text-md-start">
+          <img src="img/IMG_3725.PNG" alt="Neel Patel" class="avatar">
         </div>
-        <div class="modal-body">
-          <form class="needs-validation"
-                novalidate>
-            <div class="form-group">
-              <label for="email"
-                     class="col-form-label">Please enter a valid email to download the resume:</label>
-              <input type="text"
-                     class="form-control"
-                     id="resumeEmailInput"
-                     placeholder="Email address"
-                     required>
-              <p class="mt-3"><small>Note: Your email is only required to prevent random downloads. It is not sold or
-                  used for
-                  marketing
-                  purposes.</small></p>
-              <div class="invalid-tooltip">
-                Please enter a valid email address.
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button"
-                  class="btn btn-dark"
-                  data-dismiss="modal">Close</button>
-          <a href='./files/NeelPResumeJuly25.pdf'
-             id='resumeEmailSubmit'
-             target="_blank">
-            <button class="btn btn-warning">Download</button>
-          </a>
+        <div class="col">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="chip"><i class="fa-solid fa-code"></i> Software Engineer</span>
+            <span class="chip"><i class="fa-solid fa-location-dot"></i> West Lafayette, IN</span>
+          </div>
+          <h1 class="display-5 fw-bold mb-2">Neel J. Patel</h1>
+          <p class="subtle mb-3">(219) 315-3692 · <a href="mailto:neelp2023@gmail.com">neelp2023@gmail.com</a></p>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <a class="btn btn-sm btn-outline-light" target="_blank" href="https://linkedin.com/in/neelpatel0304"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+            <a class="btn btn-sm btn-outline-light" target="_blank" href="https://github.com/neelpatel23"><i class="fab fa-github me-2"></i>GitHub</a>
+          </div>
+          <p class="mb-0">Full‑stack SWE focused on performant mobile and AR experiences. I love turning ambiguous problems into crisp shipping roadmaps, profiling until jank disappears, and building systems that hold up under real users. Currently co‑founding <strong>Respond XR</strong> (Cal Hacks Social Impact Award).</p>
         </div>
       </div>
     </div>
-  </div>
+  </header>
 
-  <div class="container-fluid p-4">
+  <!-- Experience -->
+  <section id="experience" class="container py-4 py-md-5">
+    <h2 class="section-title mb-4">Experience</h2>
 
-    <section class="resume-section p-2 p-lg-5 d-flex align-items-center"
-             id="about">
-      <a href="javascript:"
-         id="return-to-top">
-        <i class="fa fa-chevron-up"></i>
-      </a>
-      <div class="w-100">
-        <h1 class="mb-0">Neel
-          <span class="text-primary">Patel</span>
-          <!-- <span class="align-text-middle"><img class="img-logo"
-            src="img/logo.png"
-            alt="Logo" />
-          </span> -->
-        </h1>
-        <div class="subheading mb-5">Munster, IN ·
-          <a href="mailto:neelp2023@gmail.com">neelp2023@gmail.com</a>
+    <div class="cardx p-4 mb-3">
+      <div class="d-flex justify-content-between flex-wrap gap-2">
+        <div>
+          <h3 class="h4 mb-1">Co‑Founder · Respond XR</h3>
+          <div class="subtle">San Francisco, CA · Oct 2025 – Present</div>
         </div>
-        <p class="mb-5">I’m a full‑stack developer and perpetual student who loves turning abstract ideas into products that genuinely make people’s lives easier, safer, or simply more enjoyable. Nothing excites me more than spotting a real‑world problem, dissecting it from multiple angles, and architecting an elegant, scalable solution—whether that means writing clean code, refining user flows, or squeezing out an extra millisecond of performance. To stay ahead of the curve, I actively seek out new frameworks, deepen my understanding of computer science fundamentals, and collaborate with diverse teams that challenge my assumptions. This blend of curiosity, craftsmanship, and purpose is what fuels me every day, and it’s the mindset.</p>
-        <p class="mb-5">I’m looking to immerse myself in a high‑energy, rapidly evolving workplace where I can combine the technical depth of my frontend development skills with the empathy I’ve gained from working directly with customers. I thrive when I’m translating real user pain points into slick, responsive interfaces—sweating the details of performance, accessibility, and visual polish while never losing sight of the human on the other side of the screen. My ideal role lets me collaborate with designers, product managers, and fellow engineers to iterate quickly, gather feedback early, and release features that genuinely delight people and keep them coming back for more.</p>
+        <div class="align-self-start"><span class="badge rounded-pill text-bg-dark">AI · AR · Mobile</span></div>
       </div>
-    </section>
+      <ul class="fa-ul mt-3 mb-0">
+        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Pioneered a mobile platform that turns bystanders into first responders via real‑time AI + AR; <strong>&lt;15s</strong> guidance activation, <strong>±2 mm</strong> chest‑targeting, <strong>100–120 BPM</strong> metronome, <strong>5–6 cm</strong> depth coaching—driving ~<strong>3×</strong> faster critical action in internal drills.</li>
+        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span><strong>AR glasses port:</strong> OpenXR + phone co‑processing with glass‑to‑glass latency <strong>&lt;100 ms</strong>, 6‑DoF calibration for stable overlays, and hands‑free controls; pilot users reported <strong>73%</strong> higher preference vs. handheld.</li>
+        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Won <strong>Cal Hacks 12.0 Social Impact Award</strong>; launched public demo + source and grew early pilot sign‑ups with high on‑site engagement.</li>
+      </ul>
+    </div>
 
-    <hr class="m-0">
-
-    <section class="resume-section p-4 p-lg-5 d-flex align-items-center"
-             id="experience">
-      <div class="w-100">
-        <h2 class="mb-5">Experience</h2>
-
-        <!-- <div class="resume-item d-flex flex-column flex-md-row mb-5">
-          <div class="resume-content mr-auto">
-            <h3 class="mb-0">Undergraduate Machine Learning Researcher</h3>
-            <div class="subheading mb-3">The Data Mine at Purdue University</div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2024 - Present</span>
-          </div>
-        </div> -->
-
-        <!-- <div class="resume-item d-flex flex-column flex-md-row mb-5">
-          <div class="resume-content mr-auto">
-            <h3 class="mb-0">STEP Program Intern</h3>
-            <div class="subheading mb-3">Google Inc.</div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">May 2024 - July 2024</span>
-          </div>
-        </div> -->
-         <div class="resume-item d-flex flex-column flex-md-row mb-5">
-          <div class="resume-content mr-auto">
-            <h3 class="mb-0">Software Engineer Intern</h3>
-            <div class="subheading mb-3">MiraPhoto</div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">July 2025 – September 2025</span>
-          </div>
+    <div class="cardx p-4 mb-3">
+      <div class="d-flex justify-content-between flex-wrap gap-2">
+        <div>
+          <h3 class="h4 mb-1">Software Engineer Intern · MiraPhoto</h3>
+          <div class="subtle">New York City, NY · Jul 2025 – Sep 2025</div>
         </div>
-        <div class="resume-item d-flex flex-column flex-md-row mb-5">
-          <div class="resume-content mr-auto">
-            <h3 class="mb-0">Events Co-Chair</h3>
-            <div class="subheading mb-3">Project RISHI (Rural India Social Health Improvement) </div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2024 – Present</span>
-          </div>
-        </div>
-        <div class="resume-item d-flex flex-column flex-md-row mb-5">
-          <div class="resume-content mr-auto">
-            <h3 class="mb-0">National IT Team Member</h3>
-            <div class="subheading mb-3">BAPS (Bochasanwasi Shri Akshar Purshottam Sanstha)</div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">July 2022 - Present</span>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <p>Download the resume below for my entire work history.</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 col-md-4 d-flex">
-            <button type="button"
-                    class="mx-auto ml-md-0 resumeBtn"
-                    data-toggle="modal"
-                    data-target="#resumeDownload"><i class="fa fa-download"></i> Resume</button>
-          </div>
-        </div>
+        <div class="align-self-start"><span class="badge rounded-pill text-bg-dark">React Native · TypeScript</span></div>
       </div>
-    </section>
+      <ul class="fa-ul mt-3 mb-0">
+        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Delivered full booking & review flow (25 reusable TS components, RTK Query, image lazy‑load), cutting first paint to <strong>1.1s</strong> and onboarding <strong>3k</strong> users month‑1.</li>
+        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Instituted GitHub Actions CI/CD with <strong>130</strong> Jest tests (87% coverage), halving production bugs and enabling same‑day hot‑fixes.</li>
+      </ul>
+    </div>
 
-    <hr class="m-0">
-
-    <!-- <section class="resume-section blog p-4 p-lg-5 d-flex flex-column text-center"
-             id="projects">
-      <div class="my-auto">
-        <h2 class="mb-5 text-center text-lg-left">Projects</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <article class="blog-post">
-              <figure>
-                <figcaption>
-                  <h3>Therify <a href="https://expo.io/@vtank/therify"
-                       class="blog-category"
-                       target="_blank">(Demo)</a></h3>
-                </figcaption>
-                <a href="https://github.com/v-tank/therify"
-                   class="single_image"
-                   target="_blank">
-                  <div class="blog-img-wrap">
-                    <div class="overlay">
-                      <i class="fa fa-search"></i>
-                    </div>
-                    <img src="img/therify.png"
-                         alt="Therify" />
-                  </div>
-                </a>
-              </figure>
-            </article>
-          </div>
-
-          <div class="col-md-4">
-            <article class="blog-post">
-              <figure>
-                <figcaption>
-                  <h3>Time Bank <a href="https://timebankio.herokuapp.com/"
-                       class="blog-category"
-                       data-toggle="tooltip"
-                       data-placement="top"
-                       title="User: John | Password: user"
-                       target="_blank">(Demo)</a></h3>
-                </figcaption>
-                <a href="https://github.com/v-tank/time-bank"
-                   class="single_image"
-                   target="_blank">
-                  <div class="blog-img-wrap">
-                    <div class="overlay">
-                      <i class="fa fa-search"></i>
-                    </div>
-                    <img src="img/timebank.png"
-                         alt="Time Bank" />
-                  </div>
-                </a>
-              </figure>
-            </article>
-          </div>
-
-          <div class="col-md-4">
-            <article class="blog-post">
-              <figure>
-                <figcaption>
-                  <h3>Find Your Nature <a href="https://v-tank.github.io/Find-Your-Nature/"
-                       class="blog-category"
-                       target="_blank">(Demo)</a></h3>
-                </figcaption>
-                <a href="https://github.com/v-tank/Find-Your-Nature"
-                   class="single_image"
-                   target="_blank">
-                  <div class="blog-img-wrap">
-                    <div class="overlay">
-                      <i class="fa fa-search"></i>
-                    </div>
-                    <img src="img/fyn.png"
-                         alt="Find Your Nature" />
-                  </div>
-                </a>
-              </figure>
-            </article>
-          </div>
+    <div class="cardx p-4 mb-3">
+      <div class="d-flex justify-content-between flex-wrap gap-2">
+        <div>
+          <h3 class="h4 mb-1">Events Co‑Chair · Project RISHI</h3>
+          <div class="subtle">West Lafayette, IN · Aug 2024 – Present</div>
         </div>
-
-        <div class="row">
-          <div class="col-md-4">
-            <article class="blog-post">
-              <figure>
-                <figcaption>
-                  <h3>GIFtastic App <a href="https://v-tank.github.io/giftastic-app/"
-                       class="blog-category"
-                       target="_blank">(Demo)</a></h3>
-                </figcaption>
-                <a href="https://github.com/v-tank/giftastic-app"
-                   class="single_image"
-                   target="_blank">
-                  <div class="blog-img-wrap">
-                    <div class="overlay">
-                      <i class="fa fa-search"></i>
-                    </div>
-                    <img src="img/giftastic.png"
-                         alt="GIFtastic App" />
-                  </div>
-                </a>
-              </figure>
-            </article>
-          </div>
-
-          <div class="col-md-4">
-            <article class="blog-post">
-              <figure>
-                <figcaption>
-                  <h3>Train Scheduler <a href="https://v-tank.github.io/Train-Scheduler/"
-                       class="blog-category"
-                       target="_blank">(Demo)</a></h3>
-                </figcaption>
-                <a href="https://github.com/v-tank/Train-Scheduler"
-                   class="single_image"
-                   target="_blank">
-                  <div class="blog-img-wrap">
-                    <div class="overlay">
-                      <i class="fa fa-search"></i>
-                    </div>
-                    <img src="img/train_scheduler.png"
-                         alt="Train Scheduler" />
-                  </div>
-                </a>
-              </figure>
-            </article>
-          </div>
-
-          <div class="col-md-4">
-            <article class="blog-post">
-              <figure>
-                <figcaption>
-                  <h3>Trivia Game <a href="https://v-tank.github.io/TriviaGame/"
-                       class="blog-category"
-                       target="_blank">(Demo)</a></h3>
-                </figcaption>
-                <a href="https://github.com/v-tank/TriviaGame"
-                   class="single_image"
-                   target="_blank">
-                  <div class="blog-img-wrap">
-                    <div class="overlay">
-                      <i class="fa fa-search"></i>
-                    </div>
-                    <img src="img/trivia_game.png"
-                         class="single_image"
-                         alt="Trivia Game" />
-                  </div>
-                </a>
-              </figure>
-            </article>
-          </div>
-        </div>
+        <div class="align-self-start"><span class="badge rounded-pill text-bg-dark">Community · Ops</span></div>
       </div>
-    </section> -->
+      <ul class="fa-ul mt-3 mb-0">
+        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Collaborate with student team to plan and execute health & social impact initiatives; coordinate logistics, outreach, and partner engagement.</li>
+        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Conduct research and data collection to support sustainable solutions in healthcare, education, and access to clean water.</li>
+      </ul>
+    </div>
 
-    <hr class="m-0">
-
-    <section class="resume-section p-4 p-lg-5 d-flex flex-column"
-             id="education">
-      <div class="my-auto">
-        <h2 class="mb-5 text-center text-lg-left">Education</h2>
-
-        <div class="resume-item d-flex flex-column flex-md-row mb-5">
-          <div class="resume-content mr-auto">
-            <h3 class="mb-0">Purdue University</h3>
-            <div class="subheading mb-1">B.S. in Electrical and Computer Engineering</div>
-            <div class="subheading mb-3">Minors in Computer Science and Computer Information Technology</div>
-            <p>GPA: 3.31</p>
-            <p>Degree concentrations in Software Engineering</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2023 - December 2026 (Anticipated)</span>
-          </div>
+    <div class="cardx p-4">
+      <div class="d-flex justify-content-between flex-wrap gap-2">
+        <div>
+          <h3 class="h4 mb-1">National Development IT Member · BAPS</h3>
+          <div class="subtle">Robbinsville, NJ · Jun 2022 – Present</div>
         </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row">
-          <div class="resume-content mr-auto">
-            <h3 class="mb-0">Munster High School</h3>
-            <div class="subheading mb-3">Core 40 with Academic Honors</div>
-            <p>GPA: 3.19</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2019 - May 2023</span>
-          </div>
-        </div>
-
+        <div class="align-self-start"><span class="badge rounded-pill text-bg-dark">Web · DevOps</span></div>
       </div>
-    </section>
+      <ul class="fa-ul mt-3 mb-0">
+        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Led front‑end efforts and volunteered across IT to support apps and websites serving national & regional communities.</li>
+        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Employed Jenkins and DevOps tooling to push & deploy FE/BE codebases, coordinating a nationwide volunteer developer community.</li>
+        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span><strong>SWE add‑on:</strong> Dockerized services, added Terraform‑based environments, SSO + role‑based access, CDN caching, and monitoring (Sentry/Grafana), reducing MTTR and improving Lighthouse a11y/perf across flagship sites.</li>
+      </ul>
+    </div>
+  </section>
 
-    <hr class="m-0">
-
-    <section class="resume-section p-4 p-lg-5 d-flex align-items-center"
-             id="skills">
-      <div class="w-100">
-        <h2 class="mb-5">Skills</h2>
-
-        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-        <ul class="list-inline dev-icons">
-            <!-- ───── original icons (kept) ───── -->
-            <li class="list-inline-item"><i class="devicon-html5-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-css3-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-            <li class="list-inline-item"><i class="devicon-jquery-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-react-original-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-nodejs-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-express-original-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-mysql-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-mongodb-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-bootstrap-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-git-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-heroku-original-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-python-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-photoshop-line"></i></li>
-            <li class="list-inline-item"><i class="devicon-illustrator-line"></i></li>
-            <li class="list-inline-item"><i class="fab fa-sass"></i></li>
-            <li class="list-inline-item"><i class="fab fa-npm"></i></li>
-          
-            <!-- ───── NEW LANGUAGES ───── -->
-            <li class="list-inline-item"><i class="devicon-java-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-typescript-plain"></i></li>
-            <li class="list-inline-item"><i class="devicon-go-plain"></i></li>
-            <li class="list-inline-item"><i class="devicon-swift-plain"></i></li>
-            <li class="list-inline-item"><i class="devicon-r-original"></i></li>
-            <li class="list-inline-item"><i class="devicon-sqlite-plain-wordmark"></i></li>
-          
-            <!-- ───── NEW JS / WEB FRAMEWORKS ───── -->
-            <li class="list-inline-item"><i class="devicon-angularjs-plain"></i></li>
-            <li class="list-inline-item"><i class="devicon-react-original"></i></li>      <!-- React Native / Redux share logo -->
-            <li class="list-inline-item"><i class="devicon-redux-original"></i></li>
-            <li class="list-inline-item"><i class="devicon-graphql-plain"></i></li>
-            <li class="list-inline-item"><i class="devicon-babel-plain"></i></li>
-            <li class="list-inline-item"><i class="devicon-webpack-plain-wordmark"></i></li>
-          
-            <!-- ───── PYTHON / ML FRAMEWORKS ───── -->
-            <li class="list-inline-item"><i class="devicon-django-plain"></i></li>
-            <li class="list-inline-item"><i class="devicon-flask-original-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-pytorch-original"></i></li>
-            <li class="list-inline-item"><i class="devicon-tensorflow-original"></i></li>
-          
-            <!-- ───── CLOUD / DEVOPS ───── -->
-            <li class="list-inline-item"><i class="devicon-amazonwebservices-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-docker-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-kubernetes-plain-wordmark"></i></li>
-            <li class="list-inline-item"><i class="devicon-jenkins-plain"></i></li>
-            <li class="list-inline-item"><i class="devicon-terraform-plain-wordmark"></i></li>
-          
-            <!-- ───── BUILD / TEST ───── -->
-            <li class="list-inline-item"><i class="devicon-bazel-plain"></i></li>
-            <li class="list-inline-item"><i class="devicon-googlecloud-plain"></i></li> <!-- for Google Test (closest icon) -->
-          
-            <!-- ───── DATABASES ───── -->
-            <li class="list-inline-item"><i class="devicon-postgresql-plain-wordmark"></i></li>
-          
-            <!-- ───── PLATFORM / HOSTING ───── -->
-            <li class="list-inline-item"><i class="devicon-netlify-plain-wordmark"></i></li>
-          
-            <!-- ───── OS & CLI ───── -->
-            <li class="list-inline-item"><i class="devicon-linux-plain"></i></li>
-          
-            <!-- ───── DATA / ANALYTICS (Font Awesome substitutions) ───── -->
-            <li class="list-inline-item"><i class="fas fa-file-excel"></i></li>    <!-- Excel -->
-            <li class="list-inline-item"><i class="fas fa-database"></i></li>      <!-- Access / general DB -->
-            <li class="list-inline-item"><i class="fas fa-chart-bar"></i></li>     <!-- Power BI -->
+  <!-- Projects -->
+  <section id="projects" class="container py-4 py-md-5">
+    <h2 class="section-title mb-4">Projects</h2>
+    <div class="row g-3 g-md-4">
+      <div class="col-12 col-md-6">
+        <div class="cardx h-100 p-4">
+          <div class="d-flex justify-content-between align-items-start">
+            <h3 class="h5 m-0">Find Your Nature (F.Y.N)</h3>
+            <span class="badge rounded-pill text-bg-dark">Web</span>
+          </div>
+          <p class="subtle mt-2 mb-3">Jul 2024 – Aug 2024</p>
+          <p class="mb-3">Web app for exploring national parks with reviews to guide trip decisions.</p>
+          <ul class="mb-3 subtle">
+            <li>Front end with HTML/CSS/JS; NPS + Google Maps APIs; Firebase for storing reviews.</li>
+            <li>Fast UX with client caching and clean UI details.</li>
           </ul>
-          
-          <div class="subheading mb-3">Workflow</div>
-            <ul class="fa-ul mb-0">
-            <li><i class="fa-li fa fa-check"></i>Mobile‑First, Responsive Design</li>
-            <li><i class="fa-li fa fa-check"></i>Unit&nbsp;&amp;&nbsp;Integration Testing</li>
-            <li><i class="fa-li fa fa-check"></i>Cross‑Browser Testing&nbsp;&amp;&nbsp;Debugging</li>
-            <li><i class="fa-li fa fa-check"></i>Agile Development (Scrum / Kanban)</li>
-            <li><i class="fa-li fa fa-check"></i>Product Management</li>
-
-            <!-- ── new items ─────────────────────── -->
-            <li><i class="fa-li fa fa-check"></i>Continuous Integration&nbsp;&amp;&nbsp;Continuous Deployment&nbsp;(CI/CD)</li>
-            <li><i class="fa-li fa fa-check"></i>Containerization&nbsp;&amp;&nbsp;Orchestration&nbsp;(Docker&nbsp;•&nbsp;Kubernetes)</li>
-            <li><i class="fa-li fa fa-check"></i>Infrastructure as Code&nbsp;(Terraform)</li>
-            <li><i class="fa-li fa fa-check"></i>Cloud Architecture &amp; DevOps&nbsp;(AWS, GCP)</li>
-            <li><i class="fa-li fa fa-check"></i>Code Review &amp; Version Control&nbsp;(Git&nbsp;Flow)</li>
-            <li><i class="fa-li fa fa-check"></i>Data Visualization &amp; BI&nbsp;(Power&nbsp;BI, Excel)</li>
-            <li><i class="fa-li fa fa-check"></i>Performance Monitoring &amp; Logging</li>
-            <li><i class="fa-li fa fa-check"></i>Comprehensive Documentation &amp; Knowledge Sharing</li>
-            </ul>
-    </section>
-
-    <!-- <hr class="m-0"> -->
-
-    <!-- <section class="resume-section p-0 p-md-3 p-lg-5 d-flex flex-column"
-             id="testimonials">
-      <div class="my-auto">
-        <h2 class="mb-5 text-center text-lg-left">Testimonials</h2>
-        <div id="myCarousel"
-             class="carousel slide"
-             data-ride="carousel"
-             data-interval="10000"
-             data-pause="hover">
-          <ol class="carousel-indicators">
-            <li data-target="#myCarousel"
-                data-slide-to="0"
-                class="active"></li>
-            <li data-target="#myCarousel"
-                data-slide-to="1"></li>
-            <li data-target="#myCarousel"
-                data-slide-to="2"></li>
-            <li data-target="#myCarousel"
-                data-slide-to="3"></li>
-            <li data-target="#myCarousel"
-                data-slide-to="4"></li>
-            <li data-target="#myCarousel"
-                data-slide-to="5"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="item carousel-item active">
-              <div class="img-box">
-                <img src="img/JosefKopas.jpg"
-                     alt="Josef Kopas">
-              </div>
-              <p class="testimonial"><i class="fa fa-quote-left"></i> 'Walking the extra mile' is the phrase that comes
-                to mind when I think about Vaibhav. His drive, dedication and positive attitude set a great example for
-                the rest of the team and explains why everyone enjoyed working with him…internally as well as
-                externally. During his time at WITTENSTEIN, Vaibhav produced great results for our Sales and Application
-                Engineering group by going above and beyond his call of duty. He’s a very quick learner and would be an
-                asset to any team. I certainly miss working with him. <i class="fa fa-quote-right"></i></p>
-              <h4>Josef Kopas</h4>
-              <p class="title">Direct Manager @ WITTENSTEIN</p>
-            </div>
-
-            <div class="item carousel-item">
-              <div class="img-box">
-                <img src="img/JohnPierce.jpg"
-                     alt="John Pierce">
-              </div>
-              <p class="testimonial"><i class="fa fa-quote-left"></i> As a Solutions Engineer at HackerRank, Vaibhav had
-                a customer facing role solving problems. We worked together to confirm and correct any errors that were
-                found in our question library. He always remembered that the customers were the lifeblood of our
-                industry and focused on their needs. When he presented an issue to me, it was always fully described
-                regarding analysis he had done and with a proposed solution. It made it easy for me to verify and
-                correct problems as they arose, and often it was done while he was still actively communicating with the
-                customer. His good nature, customer focus, familiarity with multiple computer languages on various
-                platforms, as well as his analytical and communication skills will make him an asset to any
-                organization. <i class="fa fa-quote-right"></i></p>
-              <h4>John Pierce</h4>
-              <p class="title">Colleague @ HackerRank</p>
-            </div>
-
-            <div class="item carousel-item">
-              <div class="img-box">
-                <img src="img/SeanBrennan.jpg"
-                     alt="Sean Brennan">
-              </div>
-              <p class="testimonial"><i class="fa fa-quote-left"></i> I had the pleasure of working with Vaibhav and I
-                recommend him.</p>
-              <p>Although I was not his hiring manager, Vaibhav has all the qualities I look for when hiring. He is
-                intelligent, he wants to learn, he works hard, he asks insightful questions, he has superior social
-                skills and he works well with everyone. For example, as a new hire he was immediately put in
-                uncomfortable situations because he either was not completely familiar with the nuances of our products
-                or he had to work in challenging environments. Everyone that he worked with was impressed not only at
-                how quickly he came up to speed but how well he covered thorny projects when key members were on
-                vacation. His coverage was seamless. I have worked with only a hand full of people who can do this.
-                Vaibhav quickly learned and he became the go-to person in his department. </p>
-              <p>I would be happy to work with Vaibhav again in any venture because I respect him, I can trust him, and
-                I know he will work hard. For these reasons I expect Vaibhav’s future ventures to be successful. As a
-                bonus, he uses his superior social skills to make work fun. <i class="fa fa-quote-right"></i></p>
-              <h4>Sean Brennan</h4>
-              <p class="title">Colleague @ Moog Animatics</p>
-            </div>
-
-            <div class="item carousel-item">
-              <div class="img-box">
-                <img src="img/DrFurman.jpg"
-                     alt="Dr. Furman">
-              </div>
-              <p class="testimonial"><i class="fa fa-quote-left"></i> Vaibhav was a high-value contributor on the
-                controls team of Spartan Superway project, a research project I direct that is developing a new paradigm
-                in truly sustainable transportation. In this capacity, he taught himself Python to develop software to
-                control model vehicles on small-scale demonstration of the Superway system. He was highly regarded by
-                his team mates as being a hard worker and a good listener.</p>
-              <p>Vaibhav performed in the top 20% of the relatively challenging class I teach on Mechatronics in the
-                Spring of 2015.</p>
-              <p>Just last semester, Vaibhav and a colleague from Moog Animatics graciously came to a senior-level
-                course I teach to talk about SmartMotors and their application in mechatronics. Their talk was well
-                received.</p>
-              <p>Based on what I’ve observed, I’m confident that Vaibhav will do well in any position that he seeks. <i
-                   class="fa fa-quote-right"></i></p>
-              <h4>Dr. Buff Furman</h4>
-              <p class="title">Professor &amp; Advisor @ SJSU</p>
-            </div>
-
-            <div class="item carousel-item">
-              <div class="img-box">
-                <img src="img/DrRhee.jpg"
-                     alt="Dr. Rhee">
-              </div>
-              <p class="testimonial"><i class="fa fa-quote-left"></i> Vaibhav graduated from SJSU with a GPA of 3.8 in
-                one of the most competitive majors on campus – Mechanical Engineering. He received a grade of “A+” in
-                the Fluid Mechanics course that I taught in Fall 2013, and he brings this enthusiasm and dedication to
-                everything he does. <i class="fa fa-quote-right"></i></p>
-              <h4>Dr. Jinny Rhee</h4>
-              <p class="title">Professor &amp; Associate Dean of Engineering @ SJSU</p>
-            </div>
-
-            <div class="item carousel-item">
-              <div class="img-box">
-                <img src="img/NicoLucchese.jpg"
-                     alt="Nico Lucchese">
-              </div>
-              <p class="testimonial"><i class="fa fa-quote-left"></i> Vaibhav is a dependable and hardworking
-                contributor to any team. I have worked with him on several class projects, one of which involved the
-                design of an automated pill dispenser. Throughout the project he was highly motivated and took
-                initiative to designing the sensor circuit and a big portion of the programming for the project.
-                Furthermore, he also took a large initiative in assembling most of the mechanical components so that we
-                could sufficiently test the mechanism by our predetermined deadline.</p>
-              <p>In addition to his technical aptitude, Vaibhav is an excellent communicator and public speaker.
-                Throughout projects he is quickly responsive and digs into topics to help teams find adequate solutions.
-                Additionally, through both our project presentations and his talk to my Mechatronics capstone course, he
-                has proven himself an excellent presenter. He not only brings energy to what he is presenting but
-                outlines the necessary information in a clear and concise manner.</p>
-              <p>From what I have seen, I am confident he will do well and bring success to any team he joins. <i
-                   class="fa fa-quote-right"></i></p>
-              <h4>Nico Lucchese</h4>
-              <p class="title">Project Teammate @ Materion Corp.</p>
-            </div>
+          <div class="d-flex gap-2">
+            <a class="btn btn-sm btn-outline-light" target="_blank" href="#">Live</a>
+            <a class="btn btn-sm btn-outline-light" target="_blank" href="#">Source</a>
           </div>
-          <a class="carousel-control left carousel-control-prev"
-             href="#myCarousel"
-             data-slide="prev">
-            <i class="fa fa-angle-left"></i>
-          </a>
-          <a class="carousel-control right carousel-control-next"
-             href="#myCarousel"
-             data-slide="next">
-            <i class="fa fa-angle-right"></i>
-          </a>
         </div>
       </div>
-    </section> -->
+      <!-- Add more project cards as needed -->
+    </div>
+  </section>
 
-    <!-- <hr class="m-0">
- 
-    <section class="resume-section p-4 p-lg-5 d-flex align-items-center"
-             id="interests">
-      <div class="w-100">
-        <h2 class="mb-5">Interests</h2>
-        <p>Apart from being a web developer, I like to spend my time outdoors. I play basketball and soccer, and also
-          enjoy taking pictures of the nature.</p>
-        <p class="mb-0">When forced indoors, I binge-watch movies and TV shows on Netflix. I also like to sing my heart
-          out on the karaoke machine. I like to stay at the forefront of technology, so I also read a lot of tech news
-          and take online classes to further develop my skill-set.</p>
+  <!-- Education -->
+  <section id="education" class="container py-4 py-md-5">
+    <h2 class="section-title mb-4">Education</h2>
+    <div class="cardx p-4">
+      <div class="d-flex justify-content-between flex-wrap gap-2">
+        <div>
+          <h3 class="h5 mb-1">Purdue University</h3>
+          <div class="subtle">B.S. in Computer Engineering · Minors: Computer Science, Computer Information Technology</div>
+          <div class="subtle">GPA: 3.43 / 4.00</div>
+        </div>
+        <div class="subtle">Aug 2023 – May 2027 (Anticipated) · West Lafayette, IN</div>
       </div>
-    </section>
-
-    <hr class="m-0">
-
-    <section class="resume-section p-4 p-lg-5 d-flex align-items-center"
-             id="awards">
-      <div class="w-100">
-        <h2 class="mb-5">Awards &amp; Certifications</h2>
-        <ul class="fa-ul mb-0">
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            Received an 'Exceeds Expectations' rating for 2 out of 3 years at Amazon</li>
-          <li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            Leadership Principle Award @ Amazon Web Services (2021)</li>
-          <li>
-          <li>
-            <i class="fa-li fa fa-certificate text-warning"></i>
-            Certified Product Owner - Scrum Alliance</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            Graduated Magna Cum Laude - Mechanical Engineering</li>
-        </ul>
+      <div class="mt-3">
+        <div class="fw-semibold">Relevant Coursework</div>
+        <div class="subtle">Data Structures & Algorithms · Object‑Oriented Programming with C · Python & Data Science · DAQ and Systems Control</div>
       </div>
-    </section> -->
+    </div>
+  </section>
 
-    <footer id="footer"
-            class="text-center"></footer>
-  </div>
+  <!-- Skills -->
+  <section id="skills" class="container py-4 py-md-5">
+    <h2 class="section-title mb-4">Skills</h2>
+    <div class="row g-3">
+      <div class="col-12 col-lg-6">
+        <div class="cardx p-4 h-100">
+          <h3 class="h6 text-uppercase subtle">Languages</h3>
+          <div class="d-flex flex-wrap gap-2 mt-2">
+            <span class="badge badge-skill">Java</span>
+            <span class="badge badge-skill">JavaScript</span>
+            <span class="badge badge-skill">TypeScript</span>
+            <span class="badge badge-skill">Swift</span>
+            <span class="badge badge-skill">Go</span>
+            <span class="badge badge-skill">Python</span>
+            <span class="badge badge-skill">SQL</span>
+            <span class="badge badge-skill">R</span>
+          </div>
+          <h3 class="h6 text-uppercase subtle mt-4">Frameworks</h3>
+          <div class="d-flex flex-wrap gap-2 mt-2">
+            <span class="badge badge-skill">React / React Native</span>
+            <span class="badge badge-skill">Node / Express</span>
+            <span class="badge badge-skill">Redux</span>
+            <span class="badge badge-skill">Flask</span>
+            <span class="badge badge-skill">Django</span>
+            <span class="badge badge-skill">PyTorch</span>
+            <span class="badge badge-skill">TensorFlow</span>
+            <span class="badge badge-skill">GraphQL</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="cardx p-4 h-100">
+          <h3 class="h6 text-uppercase subtle">Tools & Platforms</h3>
+          <div class="d-flex flex-wrap gap-2 mt-2">
+            <span class="badge badge-skill">AWS (Airflow, S3)</span>
+            <span class="badge badge-skill">Docker</span>
+            <span class="badge badge-skill">Kubernetes</span>
+            <span class="badge badge-skill">Jenkins</span>
+            <span class="badge badge-skill">Terraform</span>
+            <span class="badge badge-skill">Google Test</span>
+            <span class="badge badge-skill">Bazel</span>
+            <span class="badge badge-skill">Webpack</span>
+            <span class="badge badge-skill">Babel</span>
+            <span class="badge badge-skill">Power BI</span>
+            <span class="badge badge-skill">MATLAB</span>
+            <span class="badge badge-skill">Git / Linux</span>
+            <span class="badge badge-skill">MySQL · PostgreSQL · MongoDB</span>
+            <span class="badge badge-skill">HTML · CSS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript"
-          src="vendor/jquery/jquery.min.js"></script>
-  <script type="text/javascript"
-          src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossorigin="anonymous"></script>
+  <footer class="container py-5 subtle">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <div>
+        © <span id="year"></span> Neel J. Patel
+      </div>
+      <div class="d-flex gap-3">
+        <a class="subtle" href="mailto:neelp2023@gmail.com"><i class="fa-solid fa-envelope me-2"></i>Email</a>
+        <a class="subtle" href="https://linkedin.com/in/neelpatel0304" target="_blank"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+        <a class="subtle" href="https://github.com/neelpatel23" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a>
+      </div>
+    </div>
+  </footer>
 
-  <!-- Plugin JavaScript -->
-  <script type="text/javascript"
-          src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script type="text/javascript"
-          src="js/resume.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
-
 </html>
