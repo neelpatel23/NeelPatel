@@ -226,3 +226,47 @@ footer>div{width:100%;justify-content:space-between;padding-top:12px}
 .coursework{margin:24px 0;color:var(--muted)}
 .education-card .coursework .eyebrow{margin-bottom:10px}
 .education-card .coursework p{font-size:12px;line-height:1.85}
+
+/* Draw the brand mark as geometry so mobile emoji fonts cannot replace it. */
+.brand-star{display:inline-block;width:1em;height:1em;flex-shrink:0;vertical-align:-.12em;fill:none;stroke:var(--orange);stroke-width:2.5;stroke-linecap:square}
+.wordmark .brand-star{display:block}
+.contact-star .brand-star{display:block}
+.ticker .brand-star{display:block}
+.hero-note{position:absolute;z-index:2;display:flex;align-items:center;gap:11px;padding:13px 16px;border:1px solid #dfded3;background:#faf9f4f2;border-radius:10px;box-shadow:0 8px 22px #33331108;animation:note-float 7s ease-in-out infinite}
+.note-symbol{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#f3e5d9;color:var(--orange);font-size:14px;font-weight:600}
+.note-kicker{display:block;font-size:7px;letter-spacing:1.5px;color:var(--muted);margin-bottom:5px}
+.hero-note strong{display:block;font-size:11px;font-weight:500;white-space:nowrap}
+.note-build{top:48px;right:0;--note-rotation:6deg}
+.note-learn{top:117px;left:-8px;--note-rotation:-7deg;animation-delay:-2s}
+.note-community{right:-5px;bottom:70px;--note-rotation:5deg;animation-delay:-4s}
+@keyframes note-float{0%,100%{transform:translateY(0) rotate(var(--note-rotation))}50%{transform:translateY(-7px) rotate(var(--note-rotation))}}
+@media(max-width:1000px) and (min-width:701px){.hero-note{padding:10px 12px;gap:8px}.note-learn{left:0;top:96px}.note-build{top:22px}.note-community{bottom:58px;right:0}.floating-tag{bottom:15px}}
+@media(max-width:700px){.hero-art{height:410px;margin-top:-5px;margin-bottom:-10px}.note-build{top:25px;right:0}.note-learn{top:88px;left:-3px}.note-community{bottom:51px;right:0}.floating-tag{bottom:3px;left:2px}.hero-art .label-bottom{bottom:-26px;font-size:7px}.hero-art .orbit{top:22px}.hero-art .label-top{top:-12px}}
+
+/* Cards follow an ellipse while staying upright and evenly spaced. */
+@supports (offset-path: ellipse(100px 100px at 50% 50%)) {
+  .hero-art { --card-orbit-y: 160px; }
+  .hero-note {
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    offset-path: ellipse(calc(50% - 88px) var(--card-orbit-y) at 50% 50%);
+    offset-anchor: center;
+    offset-rotate: 0deg;
+    offset-distance: var(--orbit-start);
+    animation: card-orbit 36s linear infinite;
+    animation-delay: var(--orbit-delay);
+  }
+  .note-build { --orbit-start: 0%; --orbit-delay: 0s; }
+  .note-learn { --orbit-start: 33.333%; --orbit-delay: -12s; }
+  .note-community { --orbit-start: 66.667%; --orbit-delay: -24s; }
+  @keyframes card-orbit {
+    from { offset-distance: 0%; }
+    to { offset-distance: 100%; }
+  }
+  @media (max-width: 700px) {
+    .hero-art { --card-orbit-y: 145px; }
+    .hero-note { offset-path: ellipse(calc(50% - 88px) var(--card-orbit-y) at 50% 50%); }
+  }
+}
