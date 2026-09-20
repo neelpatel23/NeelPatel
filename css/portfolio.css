@@ -246,7 +246,10 @@ footer>div{width:100%;justify-content:space-between;padding-top:12px}
 /* Cards follow an ellipse while staying upright and evenly spaced. */
 @supports (offset-path: ellipse(100px 100px at 50% 50%)) {
   .hero-art { --card-orbit-y: 160px; }
-  .hero-note {
+  .hero-note, .floating-tag {
+    z-index: 2;
+    transform: none;
+    white-space: nowrap;
     top: 0;
     left: 0;
     right: auto;
@@ -259,8 +262,9 @@ footer>div{width:100%;justify-content:space-between;padding-top:12px}
     animation-delay: var(--orbit-delay);
   }
   .note-build { --orbit-start: 0%; --orbit-delay: 0s; }
-  .note-learn { --orbit-start: 33.333%; --orbit-delay: -12s; }
-  .note-community { --orbit-start: 66.667%; --orbit-delay: -24s; }
+  .note-learn { --orbit-start: 25%; --orbit-delay: -9s; }
+  .note-community { --orbit-start: 50%; --orbit-delay: -18s; }
+  .floating-tag { --orbit-start: 75%; --orbit-delay: -27s; }
   @keyframes card-orbit {
     from { offset-distance: 0%; }
     to { offset-distance: 100%; }
