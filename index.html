@@ -1,301 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Neel J. Patel — SWE Portfolio & Resume" />
-  <title>Neel J. Patel — Software Engineer</title>
-
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-
-  <!-- Bootstrap 5 (CDN) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <style>
-    :root{
-      --bg: #0b0d12;
-      --card: #111521;
-      --muted: #98a2b3;
-      --text: #e6e9f0;
-      --brand: #7c5cff; /* electric violet */
-      --brand-2: #2cd4ff; /* cyan accent */
-      --ring: 0 0 0 .25rem rgba(124,92,255,.35);
-    }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#ffffff; --card:#f7f7fb; --text:#0b0d12; --muted:#475467; }
-    }
-    html,body{ height:100%; background: radial-gradient(1200px 600px at 10% -10%, rgba(124,92,255,.18), transparent 60%),
-                                 radial-gradient(900px 500px at 110% 30%, rgba(44,212,255,.12), transparent 60%),
-                                 var(--bg); color:var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
-    a{ color: var(--brand-2); text-decoration: none; }
-    a:hover{ color: var(--brand); }
-
-    .chip{display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .7rem; border-radius:999px; background:rgba(124,92,255,.1); color:#c9c3ff; font-weight:600; letter-spacing:.2px;}
-    .btn-brand{ background: linear-gradient(90deg, var(--brand) 0%, var(--brand-2) 100%); border:none; color:white; font-weight:700; }
-    .btn-brand:hover{ filter:brightness(1.05); box-shadow: var(--ring); }
-
-    .nav-glass{ backdrop-filter: blur(8px); background: rgba(17,21,33,.6); border:1px solid rgba(255,255,255,.06); }
-
-    .cardx{ background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); border-radius: 18px; }
-    .cardx:hover{ transform: translateY(-2px); transition: .25s ease; box-shadow: 0 10px 40px rgba(0,0,0,.25); }
-
-    .section-title{ font-family: Space Grotesk, Inter, sans-serif; letter-spacing:.4px; font-weight:800; }
-    .subtle{ color:var(--muted); }
-
-    .timeline{ position:relative; padding-left:1.2rem; }
-    .timeline::before{ content:""; position:absolute; left:.15rem; top:.3rem; bottom:.5rem; width:2px; background: linear-gradient(var(--brand), transparent); border-radius:2px; }
-    .tl-item{ position:relative; margin:0 0 1.25rem 0; }
-    .tl-item::before{ content:""; position:absolute; left:-1.1rem; top:.25rem; width:.7rem; height:.7rem; border-radius:50%; background: var(--brand-2); box-shadow:0 0 0 3px rgba(44,212,255,.2); }
-
-    .badge-skill{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); color:var(--text); }
-
-    .avatar{
-      width:120px; height:120px; border-radius:50%; object-fit:cover; border:3px solid rgba(255,255,255,.18);
-      box-shadow:0 10px 30px rgba(124,92,255,.2);
-    }
-    .hero{ border:1px solid rgba(255,255,255,.08); border-radius:22px; background: radial-gradient(800px 400px at 10% -10%, rgba(124,92,255,.18), transparent 60%), rgba(17,21,33,.5); }
-
-    .list-unstyled li + li{ margin-top:.35rem; }
-    .fa-li{ top: .2em; color: var(--brand-2); }
-    .muted{ color: var(--muted); }
-
-    /* Smooth anchors */
-    html{ scroll-behavior: smooth; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Neel Patel — student, volunteer, builder, and enthusiast. Computer Engineering Technology at Purdue. Building technology with purpose.">
+  <meta name="theme-color" content="#f5f3ed">
+  <title>Neel Patel — Always becoming.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <script src="js/portfolio.js" defer></script>
 </head>
 <body>
-  <!-- Nav -->
-  <nav class="navbar navbar-expand-lg sticky-top nav-glass py-2">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#home"><span style="color:var(--brand)">Neel Patel</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="btn btn-sm btn-brand ms-lg-2" href="mailto:neelp2023@gmail.com"><i class="fa-solid fa-envelope me-2"></i>Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero / About -->
-  <header id="home" class="container py-5">
-    <div class="hero p-4 p-md-5 cardx">
-      <div class="row align-items-center g-4">
-        <div class="col-12 col-md-auto text-center text-md-start">
-          <img src="img/IMG_3725.PNG" alt="Neel Patel" class="avatar">
-        </div>
-        <div class="col">
-          <div class="d-flex align-items-center gap-2 mb-2">
-            <span class="chip"><i class="fa-solid fa-code"></i> Software Engineer</span>
-            <span class="chip"><i class="fa-solid fa-location-dot"></i> West Lafayette, IN</span>
-          </div>
-          <h1 class="display-5 fw-bold mb-2">Neel J. Patel</h1>
-          <p class="subtle mb-3">(219) 315-3692 · <a href="mailto:neelp2023@gmail.com">neelp2023@gmail.com</a></p>
-          <div class="d-flex flex-wrap gap-2 mb-3">
-            <a class="btn btn-sm btn-outline-light" target="_blank" href="https://linkedin.com/in/neelpatel0304"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
-            <a class="btn btn-sm btn-outline-light" target="_blank" href="https://github.com/neelpatel23"><i class="fab fa-github me-2"></i>GitHub</a>
-          </div>
-          <p class="mb-0">Full‑stack SWE focused on performant mobile and AR experiences. I love turning ambiguous problems into crisp shipping roadmaps, profiling until jank disappears, and building systems that hold up under real users. Currently co‑founding <strong>Respond XR</strong> (Cal Hacks Social Impact Award).</p>
-        </div>
-      </div>
-    </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="Neel Patel home">np<span>✳</span></a>
+    <nav aria-label="Main navigation"><a href="#about">About</a><a href="#work">Work</a><a href="#journey">Journey</a></nav>
+    <a class="nav-contact" href="mailto:neelp2023@gmail.com">Let’s talk <span>↗</span></a>
   </header>
-
-  <!-- Experience -->
-  <section id="experience" class="container py-4 py-md-5">
-    <h2 class="section-title mb-4">Experience</h2>
-
-    <div class="cardx p-4 mb-3">
-      <div class="d-flex justify-content-between flex-wrap gap-2">
-        <div>
-          <h3 class="h4 mb-1">Incoming Software Engineer Intern · CME Group</h3>
-          <div class="subtle">Chicago, IL · May 2026</div>
+  <main id="main">
+    <section class="hero wrap" id="home" aria-labelledby="hero-title">
+      <div class="hero-top"><span class="eyebrow"><i class="status-dot"></i> CURIOUS BY DEFAULT.</span><span class="edition">PORTFOLIO / 2026</span></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="intro">Hey, I’m</p>
+          <h1 id="hero-title">Neel Patel<span class="orange">.</span></h1>
+          <p class="role-line" aria-label="A student, volunteer, builder, enthusiast, and more."><span aria-hidden="true"><span id="role-article">a</span> <span id="typed-role">student.</span><span class="cursor">|</span></span></p>
+          <p class="hero-description">A little curiosity. A lot of purpose.<br>I build things, bring people together, and keep learning along the way.</p>
+          <div class="hero-actions"><a class="button dark" href="#work">Explore my work <span>↗</span></a><a class="text-link" href="#about">A little about me <span>↓</span></a></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="art-grid"></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="sculpture"><div class="petal p1"></div><div class="petal p2"></div><div class="petal p3"></div><div class="petal p4"></div><div class="petal p5"></div><div class="petal p6"></div><div class="petal p7"></div><div class="petal p8"></div><div class="sculpture-center"></div></div>
+          <span class="art-label label-top">IDEAS INTO IMPACT</span><span class="art-label label-bottom">WORK IN PROGRESS. ALWAYS.</span><span class="art-cross">+</span>
+          <div class="floating-tag"><span>↗</span> Always becoming.</div>
         </div>
       </div>
-    </div>
-
-    <div class="cardx p-4 mb-3">
-      <div class="d-flex justify-content-between flex-wrap gap-2">
-        <div>
-          <h3 class="h4 mb-1">Co‑Founder · Respond XR</h3>
-          <div class="subtle">San Francisco, CA · Oct 2025 – Present</div>
-        </div>
-        <div class="align-self-start"><span class="badge rounded-pill text-bg-dark">AI · AR · Mobile</span></div>
+      <div class="hero-bottom"><span>BASED IN WEST LAFAYETTE, IN</span><span class="hero-school">COMPUTER ENGINEERING TECHNOLOGY @ PURDUE</span><a href="#about">SCROLL TO DISCOVER <span>↓</span></a></div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div>STAY CURIOUS <span>✳</span> BUILD WITH PURPOSE <span>✳</span> SHOW UP FOR OTHERS <span>✳</span> KEEP EXPLORING <span>✳</span> STAY CURIOUS <span>✳</span> BUILD WITH PURPOSE <span>✳</span></div></div>
+    <section class="section wrap about" id="about">
+      <div class="section-label"><span>01 / THE PERSON</span><span>A FEW THINGS ABOUT ME</span></div>
+      <div class="about-grid"><div class="portrait-frame reveal"><img src="img/IMG_3725.PNG" alt="Neel Patel" loading="lazy"><span class="portrait-note">More than a single title. ↗</span></div><div class="about-copy reveal"><h2>Many interests.<br>One <em>curious mind.</em></h2><p>I’m a Computer Engineering Technology student at Purdue who feels most at home where technology meets people. At CME Group, I build tools that help developers find the context they need. At Aidra, I work on AI and augmented reality that help people respond in critical moments.</p><p>From my work as a Founding Engineer at Aidra to volunteering with BAPS and Project RISHI, I’m drawn to work that makes someone’s day—or their world—a little better.</p><div class="interest-tags"><span>↗ Builder at heart</span><span>✳ Community first</span><span>∞ Lifelong learner</span></div></div></div>
+    </section>
+    <section class="section work-section" id="work"><div class="wrap">
+      <div class="section-label"><span>02 / SELECTED WORK</span><span>LESS TALK. MORE MAKING.</span></div>
+      <div class="section-heading"><h2>Built with <em>intention.</em></h2><a class="text-link" href="https://github.com/neelpatel23" target="_blank" rel="noopener noreferrer">My GitHub <span>↗</span></a></div>
+      <div class="project-grid">
+        <article class="project reveal"><div class="project-visual xr-visual"><span class="visual-kicker">AIDRA / CONCEPT</span><div class="target-ring"><span>+</span></div><div class="xr-caption"><span class="status-dot"></span> Guidance when it matters.</div><div class="visual-bottom"><span>AI + AUGMENTED REALITY</span><span>↗</span></div></div><div class="project-meta"><span>01 / FOUNDING ENGINEER</span><span>AI · AR · MOBILE</span></div><h3>Aidra</h3><p>Turning bystanders into first responders with real-time AI and augmented reality guidance. On-device computer vision runs at 60 FPS, with guidance activated in under 15 seconds and roughly 3× faster critical action in internal drills.</p><span class="project-note">✳ Cal Hacks 12.0 Social Impact Award</span></article>
+        <article class="project reveal"><div class="project-visual nature-visual"><span class="visual-kicker">FIND YOUR NATURE / CONCEPT</span><div class="sun"></div><div class="mountain mountain-back"></div><div class="mountain mountain-front"></div><div class="nature-title">Go find<br>your outside.</div><div class="visual-bottom"><span>A LITTLE CLOSER TO NATURE</span><span>↗</span></div></div><div class="project-meta"><span>02 / WEB APPLICATION</span><span>JAVASCRIPT · FIREBASE</span></div><h3>Find Your Nature</h3><p>A place to explore national parks, discover your next trip, and share reviews. Built with NPS and Google Maps APIs.</p><span class="project-note">↗ Made for the explorer in all of us</span></article>
       </div>
-      <ul class="fa-ul mt-3 mb-0">
-        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Pioneered a mobile platform that turns bystanders into first responders via real‑time AI + AR; <strong>&lt;15s</strong> guidance activation, <strong>±2 mm</strong> chest‑targeting, <strong>100–120 BPM</strong> metronome, <strong>5–6 cm</strong> depth coaching—driving ~<strong>3×</strong> faster critical action in internal drills.</li>
-        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span><strong>AR glasses port:</strong> OpenXR + phone co‑processing with glass‑to‑glass latency <strong>&lt;100 ms</strong>, 6‑DoF calibration for stable overlays, and hands‑free controls; pilot users reported <strong>73%</strong> higher preference vs. handheld.</li>
-        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Won <strong>Cal Hacks 12.0 Social Impact Award</strong>; launched public demo + source and grew early pilot sign‑ups with high on‑site engagement.</li>
-      </ul>
-    </div>
-
-    <div class="cardx p-4 mb-3">
-      <div class="d-flex justify-content-between flex-wrap gap-2">
-        <div>
-          <h3 class="h4 mb-1">Software Engineer Intern · MiraPhoto</h3>
-          <div class="subtle">New York City, NY · Jul 2025 – Sep 2025</div>
+    </div></section>
+    <section class="section wrap" id="journey"><div class="section-label"><span>03 / THE JOURNEY</span><span>LEARNING BY DOING</span></div><div class="journey-grid"><div><h2>A few stops<br>along <em>the way.</em></h2><p class="section-description">Different teams, new perspectives,<br>and something to learn at every step.</p></div><div class="experience-list">
+      <article class="experience reveal">
+        <div class="experience-number">01</div>
+        <div><h3>CME Group</h3><p>Software Engineer Intern</p><span>Chicago, IL · May 2026 – Present</span>
+          <p class="experience-detail">Built enterprise metadata integrations for Google Cloud Workstations and VS Code, making schema parsing and context discovery easier across core services.</p>
+          <p class="experience-detail">Engineered custom Model Context Protocol (MCP) servers and REST middleware across 50+ microservices, reducing manual API lookup time by 40%. A distributed context-provider pipeline cut cross-team architectural discovery overhead by 50%.</p>
+          <p class="experience-detail">Led the launch pipeline for custom IDE plugins, from compatibility analysis to distribution and developer onboarding.</p>
+        </div><span class="experience-kind">ENGINEERING</span>
+      </article>
+      <article class="experience reveal">
+        <div class="experience-number">02</div>
+        <div><h3>Aidra</h3><p>Founding Engineer</p><span>San Francisco, CA · Oct 2025 – Present</span>
+          <p class="experience-detail">Built an AI + AR first-response platform and a full-stack computer vision pipeline using CoreML, TensorFlow Lite, and spatial anchoring, maintaining 60 FPS rendering.</p>
+          <p class="experience-detail">Brought CPR guidance to AR glasses with OpenXR and phone co-processing: under 100 ms glass-to-glass latency, stable 6-DoF overlays, and hands-free controls. Pilot users reported 73% higher preference over handheld guidance.</p>
+          <p class="experience-detail">Earned the Cal Hacks 12.0 Social Impact Award and launched a public demo and source to grow early pilot participation.</p>
+        </div><span class="experience-kind">BUILDING</span>
+      </article>
+      <article class="experience reveal">
+        <div class="experience-number">03</div>
+        <div><h3>MiraPhoto</h3><p>Software Engineer Intern</p><span>New York City, NY · Jul – Sep 2025</span>
+          <p class="experience-detail">Delivered booking and review flows with React Native, Expo, and 25 reusable TypeScript components. RTK Query and lazy-loaded images helped bring first paint to 1.1 seconds and onboard 3,000 users in the first month.</p>
+          <p class="experience-detail">Introduced GitHub Actions CI/CD and 130 Jest tests with 87% coverage, halving production bugs and enabling same-day hotfixes.</p>
+        </div><span class="experience-kind">ENGINEERING</span>
+      </article>
+      <article class="experience reveal">
+        <div class="experience-number">04</div>
+        <div><h3>Project RISHI</h3><p>Events Co-Chair</p><span>West Lafayette, IN · Aug 2024 – Present</span><p class="experience-detail">Bringing students together around sustainable health and social impact initiatives.</p></div><span class="experience-kind">COMMUNITY</span>
+      </article>
+      <article class="experience reveal">
+        <div class="experience-number">05</div>
+        <div><h3>BAPS</h3><p>National Development IT Member</p><span>Robbinsville, NJ · Jun 2022 – Present</span>
+          <p class="experience-detail">Led front-end development and volunteered across IT to build apps and websites serving national and regional communities.</p>
+          <p class="experience-detail">Used Jenkins and DevOps tooling to deploy front-end and back-end services while coordinating a nationwide volunteer developer community.</p>
+        </div><span class="experience-kind">VOLUNTEERING</span>
+      </article>
+    </div></div></section>
+    <section class="section wrap education-section" id="education">
+      <div class="section-label"><span>04 / ALWAYS LEARNING</span><span>THE FOUNDATION & THE TOOLKIT</span></div>
+      <div class="education-grid">
+        <div class="education-card reveal">
+          <span class="eyebrow">BOILERMAKER, THROUGH & THROUGH.</span>
+          <h3>Purdue University<span>↗</span></h3>
+          <p>B.S. Computer Engineering Technology</p>
+          <p class="muted">Pursuing minors in Computer Science & Computer Information Technology</p>
+          <div class="coursework"><span class="eyebrow">RELEVANT COURSEWORK</span><p>Data Structures & Algorithms · C Programming · Embedded Cross-Platform Interface and Communication · DAQ and Systems Control · Advanced Digital Systems · Digital Signal Processing · Wireless Communications</p></div>
+          <div class="education-bottom"><span>AUG 2023 — DEC 2027 (EXPECTED)</span><span>WEST LAFAYETTE, IN</span></div>
         </div>
-        <div class="align-self-start"><span class="badge rounded-pill text-bg-dark">React Native · TypeScript</span></div>
-      </div>
-      <ul class="fa-ul mt-3 mb-0">
-        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Delivered full booking & review flow (25 reusable TS components, RTK Query, image lazy‑load), cutting first paint to <strong>1.1s</strong> and onboarding <strong>3k</strong> users month‑1.</li>
-        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Instituted GitHub Actions CI/CD with <strong>130</strong> Jest tests (87% coverage), halving production bugs and enabling same‑day hot‑fixes.</li>
-      </ul>
-    </div>
-
-    <div class="cardx p-4 mb-3">
-      <div class="d-flex justify-content-between flex-wrap gap-2">
-        <div>
-          <h3 class="h4 mb-1">Events Co‑Chair · Project RISHI</h3>
-          <div class="subtle">West Lafayette, IN · Aug 2024 – Present</div>
-        </div>
-        <div class="align-self-start"><span class="badge rounded-pill text-bg-dark">Community · Ops</span></div>
-      </div>
-      <ul class="fa-ul mt-3 mb-0">
-        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Collaborate with student team to plan and execute health & social impact initiatives; coordinate logistics, outreach, and partner engagement.</li>
-        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Conduct research and data collection to support sustainable solutions in healthcare, education, and access to clean water.</li>
-      </ul>
-    </div>
-
-    <div class="cardx p-4">
-      <div class="d-flex justify-content-between flex-wrap gap-2">
-        <div>
-          <h3 class="h4 mb-1">National Development IT Member · BAPS</h3>
-          <div class="subtle">Robbinsville, NJ · Jun 2022 – Present</div>
-        </div>
-        <div class="align-self-start"><span class="badge rounded-pill text-bg-dark">Web · DevOps</span></div>
-      </div>
-      <ul class="fa-ul mt-3 mb-0">
-        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Led front‑end efforts and volunteered across IT to support apps and websites serving national & regional communities.</li>
-        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span>Employed Jenkins and DevOps tooling to push & deploy FE/BE codebases, coordinating a nationwide volunteer developer community.</li>
-        <li><span class="fa-li"><i class="fa-regular fa-circle-check"></i></span><strong>SWE add‑on:</strong> Dockerized services, added Terraform‑based environments, SSO + role‑based access, CDN caching, and monitoring (Sentry/Grafana), reducing MTTR and improving Lighthouse a11y/perf across flagship sites.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="container py-4 py-md-5">
-    <h2 class="section-title mb-4">Projects</h2>
-    <div class="row g-3 g-md-4">
-      <div class="col-12 col-md-6">
-        <div class="cardx h-100 p-4">
-          <div class="d-flex justify-content-between align-items-start">
-            <h3 class="h5 m-0">Find Your Nature (F.Y.N)</h3>
-            <span class="badge rounded-pill text-bg-dark">Web</span>
-          </div>
-          <p class="subtle mt-2 mb-3">Jul 2024 – Aug 2024</p>
-          <p class="mb-3">Web app for exploring national parks with reviews to guide trip decisions.</p>
-          <ul class="mb-3 subtle">
-            <li>Front end with HTML/CSS/JS; NPS + Google Maps APIs; Firebase for storing reviews.</li>
-            <li>Fast UX with client caching and clean UI details.</li>
-          </ul>
-          <div class="d-flex gap-2">
-            <a class="btn btn-sm btn-outline-light" target="_blank" href="#">Live</a>
-            <a class="btn btn-sm btn-outline-light" target="_blank" href="#">Source</a>
-          </div>
+        <div class="toolkit reveal">
+          <h3>Tools I build with.</h3><p>From an idea on paper to something people can use.</p>
+          <div class="skill-group"><span>LANGUAGES</span><p>TypeScript · JavaScript · Python · Java · Swift · Go · SQL · R</p></div>
+          <div class="skill-group"><span>WEB & MOBILE</span><p>React · React Native · Node.js · Express · AngularJS · Redux · Flask · Django · GraphQL · REST APIs · HTML · CSS</p></div>
+          <div class="skill-group"><span>AI & DEVELOPER TOOLS</span><p>PyTorch · TensorFlow · Model Context Protocol (MCP) · VS Code Extension API</p></div>
+          <div class="skill-group"><span>CLOUD & DEVOPS</span><p>AWS (Airflow, S3) · Docker · Kubernetes · Jenkins · Terraform · Argo CD · Heroku · Netlify · Git · Linux</p></div>
+          <div class="skill-group"><span>DATA & ANALYTICS</span><p>MySQL · PostgreSQL · MongoDB · MATLAB · Power BI · Excel · Access</p></div>
+          <div class="skill-group"><span>BUILD & TEST</span><p>Google Test · Bazel · Webpack · Babel</p></div>
         </div>
       </div>
-      <!-- Add more project cards as needed -->
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education" class="container py-4 py-md-5">
-    <h2 class="section-title mb-4">Education</h2>
-    <div class="cardx p-4">
-      <div class="d-flex justify-content-between flex-wrap gap-2">
-        <div>
-          <h3 class="h5 mb-1">Purdue University</h3>
-          <div class="subtle">B.S. in Computer Engineering · Minors: Computer Science, Computer Information Technology</div>
-          <div class="subtle">GPA: 3.43 / 4.00</div>
-        </div>
-        <div class="subtle">Aug 2023 – May 2027 (Anticipated) · West Lafayette, IN</div>
-      </div>
-      <div class="mt-3">
-        <div class="fw-semibold">Relevant Coursework</div>
-        <div class="subtle">Data Structures & Algorithms · Object‑Oriented Programming with C · Python & Data Science · DAQ and Systems Control</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="container py-4 py-md-5">
-    <h2 class="section-title mb-4">Skills</h2>
-    <div class="row g-3">
-      <div class="col-12 col-lg-6">
-        <div class="cardx p-4 h-100">
-          <h3 class="h6 text-uppercase subtle">Languages</h3>
-          <div class="d-flex flex-wrap gap-2 mt-2">
-            <span class="badge badge-skill">Java</span>
-            <span class="badge badge-skill">JavaScript</span>
-            <span class="badge badge-skill">TypeScript</span>
-            <span class="badge badge-skill">Swift</span>
-            <span class="badge badge-skill">Go</span>
-            <span class="badge badge-skill">Python</span>
-            <span class="badge badge-skill">SQL</span>
-            <span class="badge badge-skill">R</span>
-          </div>
-          <h3 class="h6 text-uppercase subtle mt-4">Frameworks</h3>
-          <div class="d-flex flex-wrap gap-2 mt-2">
-            <span class="badge badge-skill">React / React Native</span>
-            <span class="badge badge-skill">Node / Express</span>
-            <span class="badge badge-skill">Redux</span>
-            <span class="badge badge-skill">Flask</span>
-            <span class="badge badge-skill">Django</span>
-            <span class="badge badge-skill">PyTorch</span>
-            <span class="badge badge-skill">TensorFlow</span>
-            <span class="badge badge-skill">GraphQL</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-lg-6">
-        <div class="cardx p-4 h-100">
-          <h3 class="h6 text-uppercase subtle">Tools & Platforms</h3>
-          <div class="d-flex flex-wrap gap-2 mt-2">
-            <span class="badge badge-skill">AWS (Airflow, S3)</span>
-            <span class="badge badge-skill">Docker</span>
-            <span class="badge badge-skill">Kubernetes</span>
-            <span class="badge badge-skill">Jenkins</span>
-            <span class="badge badge-skill">Terraform</span>
-            <span class="badge badge-skill">Google Test</span>
-            <span class="badge badge-skill">Bazel</span>
-            <span class="badge badge-skill">Webpack</span>
-            <span class="badge badge-skill">Babel</span>
-            <span class="badge badge-skill">Power BI</span>
-            <span class="badge badge-skill">MATLAB</span>
-            <span class="badge badge-skill">Git / Linux</span>
-            <span class="badge badge-skill">MySQL · PostgreSQL · MongoDB</span>
-            <span class="badge badge-skill">HTML · CSS</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="container py-5 subtle">
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-      <div>
-        © <span id="year"></span> Neel J. Patel
-      </div>
-      <div class="d-flex gap-3">
-        <a class="subtle" href="mailto:neelp2023@gmail.com"><i class="fa-solid fa-envelope me-2"></i>Email</a>
-        <a class="subtle" href="https://linkedin.com/in/neelpatel0304" target="_blank"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
-        <a class="subtle" href="https://github.com/neelpatel23" target="_blank"><i class="fab fa-github me-2"></i>GitHub</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    </section>
+    <section class="contact-section" id="contact"><div class="wrap"><div class="section-label"><span>05 / SAY HELLO</span><span>GOOD THINGS START WITH A CONVERSATION</span></div><div class="contact-grid"><div><h2>Have something<br>in <em>mind?</em><span class="contact-star">✳</span></h2><p>A project, an opportunity, or just a good conversation.<br>I’d love to hear from you.</p></div><a class="contact-button" href="mailto:neelp2023@gmail.com" aria-label="Email Neel Patel">Let’s connect <span>↗</span></a></div><a class="email-link" href="mailto:neelp2023@gmail.com">neelp2023@gmail.com ↗</a></div></section>
+  </main>
+  <footer class="wrap"><a class="wordmark" href="#home">np<span>✳</span></a><p>© <span id="year">2026</span> Neel Patel. Always becoming.</p><div><a href="https://github.com/neelpatel23" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/neelpatel0304" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="#home">Back to top ↑</a></div></footer>
 </body>
 </html>
