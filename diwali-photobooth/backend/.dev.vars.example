@@ -1,0 +1,9 @@
+# Copy to .dev.vars for local development only. Never commit real values.
+ALLOWED_ORIGINS=http://localhost:4173
+BOOTH_ACCESS_KEY=replace-with-a-random-secret-of-at-least-32-characters
+MEDIA_SIGNING_SECRET=replace-with-another-random-secret-of-at-least-32-characters
+RESEND_API_KEY=
+EMAIL_FROM=
+TWILIO_ACCOUNT_SID=
+TWILIO_AUTH_TOKEN=
+TWILIO_FROM_NUMBER=

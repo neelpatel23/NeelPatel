@@ -1,0 +1,22 @@
+name = "munster-celebration-delivery"
+main = "worker.mjs"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[vars]
+# Include the exact origin, with no trailing slash or path.
+ALLOWED_ORIGINS = "https://neeljpatel.com,https://www.neeljpatel.com"
+# Set EMAIL_FROM to a sender on your verified Resend domain.
+# EMAIL_FROM = "Munster Celebrations <photos@your-verified-domain.com>"
+
+[[r2_buckets]]
+binding = "PHOTOS"
+bucket_name = "munster-celebration-photos"
+
+[[ratelimits]]
+name = "SEND_LIMITER"
+namespace_id = "1001"
+simple = { limit = 20, period = 60 }
+
+[triggers]
+crons = ["0 * * * *"]
